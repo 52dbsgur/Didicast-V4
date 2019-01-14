@@ -1,0 +1,54 @@
+<template class="task-template">
+  <section id="devices-section" class="section js-section u-category-native-ui">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-native-ui"></use></svg>
+          녹화 장비 선택
+        </h1>
+        <h3>카메라, 프리렌테이션 스크린 마이크를 선택하는 화면</h3>
+
+        <p>강의 녹화 시작 전에 해당 장비들이 선택되어 있어야 정상적인 녹화가 가능합니다. </p>
+
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="open-file-demo-toggle" class="js-container-target demo-toggle-button" style="display:inline;">Camera
+          <div class="demo-meta u-avoid-clicks">Information: <span class="demo-meta-divider">/dev/video0</span> </div>
+        </button>
+        <span class="demo-controls" style="float: right !important; margin-top: 15px;">
+          <button class="demo-button" id="select-camera">선택</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="open-file-demo-toggle" class="js-container-target demo-toggle-button" style="display:inline;">Screen
+          <div class="demo-meta u-avoid-clicks">Information: <span class="demo-meta-divider">선택 없음</span> </div>
+        </button>
+        <span class="demo-controls" style="float: right !important; margin-top: 15px;">
+          <button class="demo-button" id="select-screen">선택</button>
+        </span>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="open-file-demo-toggle" class="js-container-target demo-toggle-button" style="display:inline;">Microphone
+          <div class="demo-meta u-avoid-clicks">Information: <span class="demo-meta-divider">선택 없음</span> </div>
+        </button>
+        <span class="demo-controls" style="float: right !important; margin-top: 15px;">
+          <button class="demo-button" id="select-microphone">선택</button>
+        </span>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/devices/devices')
+    </script>
+
+  </section>
+</template>
