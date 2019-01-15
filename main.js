@@ -7,7 +7,7 @@ if (require.main !== module) {
 
 const path = require('path')
 const glob = require('glob')
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, dialog} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
 
