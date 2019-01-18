@@ -1,0 +1,42 @@
+
+<h2>screen list</h2>
+
+<span id="choice-record-screen">screen_list here</span>
+
+<script>
+
+  const electron = require('electron');
+  const exec = require('child_process').exec;
+  const dIviceBtn = document.getElementById('select-screen');
+
+  var message = "";  // 팝업창에 작성될 구문
+  var widths = 0;    // 화면의 너비
+  var heights = 0;   // 화면의 높이
+  var offest = 0;    // 화면의 좌표 (x축 offset)
+
+  // electron API로 화면의 정보를 추출한다.
+  let displays = electron.screen.getAllDisplays();
+
+  for(var i=0; i<displays.length; i++) {
+        // 화면 배율(scaleFactor)을 곱해서 실제 화면 size를 구한다.
+        heights =  displays[i].size.height * displays[i].scaleFactor;
+        widths =  displays[i].size.width * displays[i].scaleFactor;
+
+        // window창에 보여지는 구문
+        message += `${i+1} 번 display의 width : ${widths}  height : ${heights} <br>
+        <button id="screen${i+1}"><img src="../../renderer-process/devices/screen_shot/${i+1}.png" width="192" height="108"></button><br><br>`;
+
+        // 스크린샷을 찍어 특정 폴더에 저장한다.
+        exec(`ffmpeg -y -f gdigrab -vframes 1 -offset_x ${offest} -video_size ${widths}x${heights} -i desktop renderer-process/devices/screen_shot/${i+1}.png `);
+
+        // 너비를 이용해서 해당 display의 좌표를 계산한다.
+        offest += widths;
+  }
+
+  //page로 구문 넘겨주기
+  document.getElementById('choice-record-screen').innerHTML = message;
+
+  //초기화
+  message = "";
+  offest = 0;
+</script>
