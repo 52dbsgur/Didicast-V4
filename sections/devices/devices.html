@@ -27,13 +27,15 @@
     <div class="demo">
       <div class="demo-wrapper">
         <button id="open-file-demo-toggle" class="js-container-target demo-toggle-button" style="display:inline;">Screen
-          <div class="demo-meta u-avoid-clicks">Information: <span class="demo-meta-divider">선택 없음</span> </div>
+          <div class="demo-meta u-avoid-clicks">Information: <span class="demo-meta-divider" id="size&position">선택 없음</span> </div>
         </button>
         <span class="demo-controls" style="float: right !important; margin-top: 15px;">
           <button class="demo-button" id="select-screen">선택</button>
         </span>
       </div>
     </div>
+
+    <span id="choice-record-screen"></span>
 
     <div class="demo">
       <div class="demo-wrapper">
@@ -48,6 +50,7 @@
 
     <script type="text/javascript">
       require('./renderer-process/devices/devices')
+
     </script>
 
   </section>
